@@ -5,10 +5,13 @@ from sqlalchemy.orm import Session
 import logging
 from typing import List, Dict, Any
 import redis
+# 导入 WebSocket 和相关异常
+from fastapi import WebSocket, WebSocketDisconnect
+import asyncio # 导入 asyncio 用于并发处理
 
 from src.database import get_db
 from src.redis_client import get_redis_client
-from src.auth.dependencies import get_current_user
+from src.auth.dependencies import get_current_user, get_current_user_from_websocket
 from src.auth.models import User
 from src.containers.service import container_service
 from src.containers.schemas import (
@@ -160,6 +163,91 @@ def list_containers(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail="获取容器列表时发生服务器错误。"
         )
+
+@container_router.websocket("/ws/{container_db_id}")
+async def websocket_vnc_proxy(
+    websocket: WebSocket,
+    container_db_id: int,
+    db: Session = Depends(get_db),
+    # 将认证依赖替换为专门为 WebSocket 创建的依赖
+    current_user: User = Depends(get_current_user_from_websocket)
+):
+    """
+    通过 WebSocket 代理到容器的 VNC 服务。
+    这允许前端通过 FastAPI 后端安全地连接到容器的 VNC，而无需直接暴露端口。
+    """
+    # 1. 验证用户是否有权访问此容器
+    # 使用我们之前在 service.py 中添加的方法
+    db_container = container_service.get_container_for_user(db, container_db_id, current_user)
+    
+    if not db_container:
+        # 在依赖项中已经处理了关闭，但为了保险起见，这里再次检查
+        # 如果用户获取失败（例如 token 问题），current_user 会是 None
+        if not current_user:
+            return
+        await websocket.close(code=status.WS_1008_POLICY_VIOLATION, reason="无权访问该容器或容器不存在")
+        return
+
+    await websocket.accept()
+    logger.info(f"用户 {current_user.username} 的 VNC WebSocket 连接已建立，目标容器: {db_container.container_name}")
+
+    # 2. 建立到目标容器内部 VNC 服务的 TCP 连接
+    # 由于 FastAPI 和爬虫容器都在同一个 Docker 网络中，我们可以直接使用容器名作为主机名
+    target_host = db_container.container_name
+    # 容器的 VNC 服务运行在 5900 端口，这是一个原始的 TCP 服务。
+    # 我们的后端代理负责将浏览器的 WebSocket 连接转换为这里的 TCP 连接。
+    target_port = 5900 
+    
+    reader, writer = None, None
+    try:
+        reader, writer = await asyncio.open_connection(target_host, target_port)
+        logger.info(f"成功连接到容器 {target_host}:{target_port} 的 VNC 服务")
+
+        # 3. 创建两个任务，双向转发数据
+        async def forward_client_to_vnc():
+            """从客户端 WebSocket 接收数据并转发到 VNC TCP 套接字"""
+            try:
+                while True:
+                    data = await websocket.receive_bytes()
+                    writer.write(data)
+                    await writer.drain()
+            except WebSocketDisconnect:
+                logger.info("客户端 WebSocket 连接已断开。")
+            finally:
+                if writer:
+                    writer.close()
+                    # await writer.wait_closed() # 在新版 asyncio 中可用
+
+        async def forward_vnc_to_client():
+            """从 VNC TCP 套接字接收数据并转发到客户端 WebSocket"""
+            try:
+                while not reader.at_eof():
+                    data = await reader.read(1024)
+                    if not data:
+                        break
+                    await websocket.send_bytes(data)
+            except Exception as e:
+                logger.error(f"从 VNC 转发数据到客户端时出错: {e}")
+            finally:
+                await websocket.close()
+
+        # 并发运行这两个任务
+        await asyncio.gather(
+            forward_client_to_vnc(),
+            forward_vnc_to_client()
+        )
+
+    except ConnectionRefusedError:
+        logger.error(f"连接到 {target_host}:{target_port} 被拒绝。请检查目标容器服务是否正常运行。")
+        await websocket.close(code=status.WS_1011_INTERNAL_ERROR, reason="无法连接到容器服务")
+    except Exception as e:
+        logger.error(f"VNC 代理发生未知错误: {e}", exc_info=True)
+        await websocket.close(code=status.WS_1011_INTERNAL_ERROR, reason="代理时发生内部错误")
+    finally:
+        if writer:
+            writer.close()
+        logger.info(f"VNC WebSocket 连接已关闭，目标容器: {db_container.container_name}")
+
 
 @container_router.post(
     "/{container_db_id}/stop",

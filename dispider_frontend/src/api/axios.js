@@ -7,7 +7,7 @@ import 'element-plus/es/components/message/style/css';
 const apiClient = axios.create({
   baseURL: location.hostname === 'localhost' 
     ? 'http://localhost:8000/api' 
-    : `${location.protocol}//${location.hostname}/api/v1`,
+    : `${location.protocol}//${location.hostname}/api`,
   headers: {
     'Content-Type': 'application/json',
   }

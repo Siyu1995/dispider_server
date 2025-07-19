@@ -201,6 +201,8 @@ class ContainerService:
                 ports_mapping = {'8080/tcp': current_host_port}
 
                 # 2. 启动 Docker 容器
+                # 指定 network 参数，确保工作容器和后端在同一个网络中
+                # 这样后端才能通过容器名解析并代理 VNC 连接
                 docker_container = client.containers.run(
                     image=request.image,
                     detach=True,
@@ -208,6 +210,7 @@ class ContainerService:
                     name=container_name,
                     ports=ports_mapping,
                     volumes=volumes_mapping,
+                    network='dispider_backend_dispider-net' # 确保与 docker-compose.yml 中定义的网络一致
                 )
 
                 # 3. 更新数据库记录，填入真实的 container_id 和状态
@@ -268,6 +271,41 @@ class ContainerService:
             return db.query(Container).filter(
                 Container.project_id.in_(project_ids)
             ).order_by(Container.id.desc()).all()
+
+    def get_container_for_user(self, db: Session, container_db_id: int, current_user: User) -> Optional[Container]:
+        """
+        获取单个容器的详细信息，并验证当前用户是否有权访问。
+
+        - 超级管理员可以访问任何容器。
+        - 普通用户只能访问他们作为成员所在项目下的容器。
+        
+        Args:
+            db: 数据库会话。
+            container_db_id: 要获取的容器在数据库中的 ID。
+            current_user: 当前登录的用户。
+
+        Returns:
+            如果用户有权访问，则返回 Container 对象，否则返回 None。
+        """
+        db_container = db.query(Container).filter(Container.id == container_db_id).first()
+
+        if not db_container:
+            return None
+
+        if current_user.is_super_admin:
+            return db_container
+        
+        # 检查用户是否是该容器所属项目的成员
+        membership = db.query(ProjectMember).filter(
+            ProjectMember.user_id == current_user.id,
+            ProjectMember.project_id == db_container.project_id
+        ).first()
+
+        if not membership:
+            # 用户不是该项目成员，无权访问
+            return None
+            
+        return db_container
 
     def _get_container_and_client(self, db: Session, container_db_id: int):
         """

@@ -46,35 +46,37 @@
           <el-table-column label="操作" width="280">
             <template #default="scope">
               <el-button
-                type="primary"
+                type="success"
                 size="small"
-                :disabled="scope.row.status === 'running'"
-                @click="handleReportStatus(scope.row.project_id, scope.row.worker_id)"
+                :disabled="scope.row.status !== 'running'"
+                @click="handleCommand(scope.row.id, 'restart', scope.row.project_id, scope.row.worker_id)"
               >
-                刷新状态
+                重启
+              </el-button>
+              <el-button
+                type="warning"
+                size="small"
+                :disabled="scope.row.status !== 'running'"
+                @click="handleCommand(scope.row.id, 'stop', scope.row.project_id, scope.row.worker_id)"
+              >
+                停止
+              </el-button>
+              <el-button
+                type="danger"
+                size="small"
+                @click="handleCommand(scope.row.id, 'destroy', scope.row.project_id, scope.row.worker_id)"
+              >
+                销毁
               </el-button>
               <el-button
                 type="primary"
                 size="small"
-                :disabled="!scope.row.host_port"
+                :disabled="scope.row.status !== 'running'"
                 style="margin-left: 10px;"
-                @click="handleVNC(scope.row.host_port)"
-                
+                @click="openVncViewer(scope.row.id)"
               >
                 VNC
               </el-button>
-              <el-dropdown @command="(cmd) => handleCommand(scope.row.id, cmd)">
-                <el-button size="small" style="margin-left: 10px;">
-                  更多...
-                </el-button>
-                <template #dropdown>
-                  <el-dropdown-menu>
-                    <el-dropdown-item command="restart">重启</el-dropdown-item>
-                    <el-dropdown-item command="stop">停止</el-dropdown-item>
-                    <el-dropdown-item command="destroy" divided>销毁</el-dropdown-item>
-                  </el-dropdown-menu>
-                </template>
-              </el-dropdown>
             </template>
           </el-table-column>
         </el-table>
@@ -118,12 +120,13 @@
 
 <script setup>
 import { onMounted, computed, ref, watch, onBeforeUnmount } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import { useContainerStore } from '@/stores/container';
 import { useProjectStore } from '@/stores/project';
 import { ElMessageBox, ElMessage } from 'element-plus';
 
 const route = useRoute();
+const router = useRouter();
 const containerStore = useContainerStore();
 const projectStore = useProjectStore();
 
@@ -228,46 +231,6 @@ const handleCreateContainers = async () => {
   });
 };
 
-const handleReportStatus = async (projectId, workerId) => {
-  try {
-    await containerStore.reportContainerStatus(projectId, workerId);
-    ElMessage.success('状态已成功上报并刷新。');
-  } catch (error) {
-    ElMessage.error(error.response?.data?.detail || '上报状态失败。');
-  }
-};
-
-const handleVNC = (vncUrl) => {
-  if (vncUrl) {
-    window.open(vncUrl, '_blank');
-  }
-};
-
-const handleCommand = async (containerId, command) => {
-  const action = async () => {
-    try {
-      await containerStore.sendContainerCommand(containerId, command);
-      ElMessage.success(`命令 '${command}' 发送成功。`);
-    } catch {
-      ElMessage.error(`发送命令 '${command}' 失败。`);
-    }
-  };
-
-  if (command === 'destroy') {
-    ElMessageBox.confirm(
-      '此操作将永久销毁该容器。是否继续？',
-      '警告',
-      {
-        confirmButtonText: '确定',
-        cancelButtonText: '取消',
-        type: 'warning',
-      }
-    ).then(action).catch(() => { /* Canceled */ });
-  } else {
-    action();
-  }
-};
-
 const statusType = (status) => {
   switch (status) {
     case 'running':
@@ -280,6 +243,57 @@ const statusType = (status) => {
         return 'danger';
     default:
       return 'danger';
+  }
+};
+
+const openVncViewer = (containerId) => {
+  // router.push({ name: 'VncViewer', params: { containerId } });
+  // 解析路由以获取 URL
+  const routeData = router.resolve({ name: 'VncViewer', params: { containerId } });
+  // 使用 window.open 在新标签页中打开 URL
+  window.open(routeData.href, '_blank');
+};
+
+const handleCommand = async (containerId, command, projectId, workerId) => {
+  switch (command) {
+    case 'restart':
+    case 'stop':
+    case 'destroy':
+      try {
+        await ElMessageBox.confirm(
+          `确定要 ${command} 这个容器吗?`,
+          '警告',
+          {
+            confirmButtonText: '确定',
+            cancelButtonText: '取消',
+            type: 'warning',
+          }
+        );
+        await containerStore.sendContainerCommand(containerId, command);
+        ElMessage.success(`容器 ${command} 命令已发送。`);
+      } catch (error) {
+        if (error !== 'cancel') {
+          console.error(`执行命令 ${command} 失败:`, error);
+          ElMessage.error(`执行命令 ${command} 失败。`);
+        }
+      }
+      break;
+    
+    case 'refresh_status':
+        if (!projectId || !workerId) {
+            ElMessage.error("缺少项目 ID 或工作器 ID，无法刷新状态。");
+            return;
+        }
+        try {
+            await containerStore.reportContainerStatus(projectId, workerId);
+            ElMessage.success(`容器 ${workerId} 的状态已上报为 'running'。`);
+        } catch (error) {
+            ElMessage.error(`上报容器 ${workerId} 状态时出错。`);
+        }
+        break;
+
+    default:
+      console.warn(`未知的命令: ${command}`);
   }
 };
 
