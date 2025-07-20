@@ -45,7 +45,7 @@ const connectVNC = () => {
   }
 
   const wsProtocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-  const backendHost = `${window.location.hostname}:8000`;
+  const backendHost = window.location.hostname === 'localhost' ? `${window.location.hostname}:8000` : window.location.hostname;
   const url = `${wsProtocol}//${backendHost}/api/containers/ws/${containerId}?token=${token}`;
   vncUrl.value = url;
 
