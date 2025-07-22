@@ -30,6 +30,8 @@ class Settings(BaseSettings):
     DOCKER_SPACE_OUTER: str
     # DOCKER_HOST: str
     API_BASE_URL: str
+    # Proxy settings
+    PROXY_URL: str
 
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
 

@@ -35,20 +35,19 @@
       <div v-for="(project, projectId) in groupedContainers" :key="projectId" class="project-group">
         <h2>{{ project.projectName }}</h2>
         <el-table :data="project.containers" style="width: 100%" row-key="id">
-          <el-table-column prop="container_name" label="名称" width="250" :show-overflow-tooltip="true" />
-          <el-table-column prop="container_id" label="容器ID" width="250" :show-overflow-tooltip="true" />
-          <el-table-column prop="host_port" label="主机端口" />
+          <el-table-column prop="container_name" label="名称" width="350" :show-overflow-tooltip="true" />
+          <el-table-column prop="container_id" label="容器ID" width="800" :show-overflow-tooltip="true" />
+          <!-- <el-table-column prop="host_port" label="主机端口" /> -->
           <el-table-column prop="status" label="状态">
             <template #default="scope">
               <el-tag :type="statusType(scope.row.status)">{{ scope.row.status }}</el-tag>
             </template>
           </el-table-column>
-          <el-table-column label="操作" width="280">
+          <el-table-column label="操作" width="360">
             <template #default="scope">
               <el-button
                 type="success"
                 size="small"
-                :disabled="scope.row.status !== 'running'"
                 @click="handleCommand(scope.row.id, 'restart', scope.row.project_id, scope.row.worker_id)"
               >
                 重启
@@ -56,7 +55,6 @@
               <el-button
                 type="warning"
                 size="small"
-                :disabled="scope.row.status !== 'running'"
                 @click="handleCommand(scope.row.id, 'stop', scope.row.project_id, scope.row.worker_id)"
               >
                 停止
@@ -71,11 +69,18 @@
               <el-button
                 type="primary"
                 size="small"
-                :disabled="scope.row.status !== 'running'"
                 style="margin-left: 10px;"
                 @click="openVncViewer(scope.row.id)"
               >
                 VNC
+              </el-button>
+              <el-button
+                type="info"
+                size="small"
+                style="margin-left: 10px;"
+                @click="handleCommand(scope.row.id, 'refresh_status', scope.row.project_id, scope.row.worker_id)"
+              >
+                刷新
               </el-button>
             </template>
           </el-table-column>
@@ -288,7 +293,7 @@ const handleCommand = async (containerId, command, projectId, workerId) => {
             await containerStore.reportContainerStatus(projectId, workerId);
             ElMessage.success(`容器 ${workerId} 的状态已上报为 'running'。`);
         } catch (error) {
-            ElMessage.error(`上报容器 ${workerId} 状态时出错。`);
+            ElMessage.error(error.response?.data?.detail || `上报容器 ${workerId} 状态时出错。`);
         }
         break;
 
@@ -329,9 +334,6 @@ onMounted(async () => {
   const projectIdFromQuery = route.query.projectId;
   if (projectIdFromQuery) {
     selectedProject.value = parseInt(projectIdFromQuery, 10);
-  } else if (projectStore.projects.length > 0) {
-    // 如果没有指定项目，但存在项目列表，则默认选中第一个
-    selectedProject.value = projectStore.projects[0].id;
   }
   
   // Start polling based on the selected project

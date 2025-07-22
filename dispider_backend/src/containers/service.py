@@ -147,12 +147,17 @@ class ContainerService:
             
             # 计算当前容器要使用的端口
             current_host_port = next_port + i
-
+            
+            # 设置环境变量
             environment = {
                 'PROJECT_ID': str(project_id),
                 'API_BASE_URL': api_base_url,
-                'WORKER_ID': worker_id
+                'WORKER_ID': worker_id,
+                'http_proxy': settings.PROXY_URL,
+                'https_proxy': settings.PROXY_URL,
+                'no_proxy': 'localhost,127.0.0.1,10.0.0.0/8'
             }
+            print(f"environment: {environment}")
 
             # 如果提供了代理配置，则将其合并到环境变量中
             if request.proxy_config:
@@ -210,6 +215,7 @@ class ContainerService:
                     name=container_name,
                     ports=ports_mapping,
                     volumes=volumes_mapping,
+                    shm_size='512m', # 增加共享内存大小，防止浏览器崩溃
                     network='dispider_backend_dispider-net' # 确保与 docker-compose.yml 中定义的网络一致
                 )
 
@@ -437,7 +443,16 @@ class ContainerService:
             redis_client.set(redis_key, json.dumps(alert_data))
             logger.info(f"Worker {worker_id} 的警报状态已记录到 Redis。")
 
-            # 2. 查询项目的所有者和管理员以发送通知
+            # 2. 根据 worker_id 查询容器名称以优化通知内容
+            container_display_name = worker_id  # 默认使用 worker_id 作为显示名称
+            db_container = db.query(Container).filter(Container.worker_id == worker_id).first()
+            if db_container:
+                container_display_name = db_container.container_name
+                logger.info(f"根据 worker_id '{worker_id}' 找到了对应的容器名: '{container_display_name}'。")
+            else:
+                logger.warning(f"无法根据 worker_id '{worker_id}' 找到容器记录，通知中将直接使用 worker_id。")
+
+            # 3. 查询项目的所有者和管理员以发送通知
             try:
                 # 根据新的多对多关系模型，查询项目中所有角色为"所有者"或"管理员"或成员的用户
                 project_managers = db.query(User).join(
@@ -450,8 +465,8 @@ class ContainerService:
                 if not project_managers:
                     logger.error(f"无法找到项目 {project_id} 的所有者或管理员来发送通知。")
                 else:
-                    title = f"容器需要人工干预 (项目ID: {project_id})"
-                    body = f"Worker ID: {worker_id}"
+                    title = f"容器 '{container_display_name}' 需要人工干预"
+                    body = f"项目ID: {project_id}\n容器名: {container_display_name}\n原因: {message or '无具体信息'}"
                     
                     for user in project_managers:
                         if user.pushme_key:

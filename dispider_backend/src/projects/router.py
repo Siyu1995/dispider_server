@@ -150,6 +150,40 @@ def update_project_status(
             detail="更新项目状态时发生意外错误。"
         )
 
+@router.delete(
+    "/{project_id}",
+    status_code=status.HTTP_204_NO_CONTENT,
+    summary="删除一个项目 (仅限超级管理员)",
+    description="永久删除一个项目及其所有相关数据和文件。此操作不可逆，请谨慎使用。仅限超级管理员。",
+    dependencies=[Depends(get_super_admin)]
+)
+def delete_project(
+    project_id: int,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_super_admin)
+):
+    """
+    永久删除一个项目。
+
+    - 调用服务层函数 `delete_project` 来处理所有删除逻辑。
+    - 包括删除数据库记录、文件系统中的目录以及停止并移除关联的容器。
+    - 成功后返回 `204 No Content`。
+    """
+    try:
+        logger.warning(f"超级管理员 {current_user.username} 正在请求永久删除项目 ID: {project_id}。这是一个高危操作。")
+        project_service.delete_project(db=db, project_id=project_id)
+        logger.info(f"项目 {project_id} 已被成功删除。")
+        return Response(status_code=status.HTTP_204_NO_CONTENT)
+    except HTTPException as e:
+        # 直接重新抛出由服务层或依赖项引发的已知HTTP异常
+        raise e
+    except Exception as e:
+        logger.error(f"删除项目 {project_id} 时发生未知错误: {e}", exc_info=True)
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="删除项目时发生意外错误。"
+        )
+
 @router.post(
     "/{project_id}/code",
     response_model=MessageResponse,

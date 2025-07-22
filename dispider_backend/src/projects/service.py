@@ -334,6 +334,54 @@ class ProjectService:
         logger.info(f"项目 {project_id} 的状态已成功更新为 '{new_status.value}'。")
         return project
 
+    def delete_project(self, db: Session, project_id: int):
+        """
+        永久删除一个项目及其所有相关数据。
+        - 停止并移除所有关联的容器。
+        - 删除项目在文件系统中的代码目录。
+        - 从数据库中删除项目及其所有关联的成员记录。
+        
+        Args:
+            db: 数据库会话。
+            project_id: 要删除的项目的 ID。
+
+        Raises:
+            HTTPException: 如果项目未找到。
+            OSError: 如果删除文件目录失败。
+        """
+        project = db.query(Project).filter(Project.id == project_id).first()
+        if not project:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="项目未找到")
+
+        try:
+            # 1. 停止并删除所有关联的容器
+            logger.info(f"正在停止项目 {project_id} 的所有关联容器...")
+            stopped_count = container_service.stop_all_containers_for_project(db=db, project_id=project_id)
+            logger.info(f"为项目 {project_id} 停止了 {stopped_count} 个容器。")
+
+            # 2. 删除项目在文件系统中的代码目录
+            project_dir = os.path.join(settings.DOCKER_SPACE, str(project_id))
+            if os.path.isdir(project_dir):
+                logger.info(f"正在删除项目 {project_id} 的代码目录: {project_dir}")
+                shutil.rmtree(project_dir)
+                logger.info(f"成功删除项目 {project_id} 的代码目录。")
+
+            # 3. 从数据库中删除项目
+            # 假设数据库为 ProjectMember 设置了级联删除（ondelete="CASCADE"），
+            # 删除项目时会自动删除关联的记录。
+            logger.info(f"正在从数据库中删除项目 {project_id}...")
+            db.delete(project)
+            db.commit()
+            logger.info(f"项目 {project_id} 已被成功删除。")
+
+        except (SQLAlchemyError, OSError) as e:
+            db.rollback()
+            logger.error(f"删除项目 {project_id} 过程中发生错误: {e}", exc_info=True)
+            raise HTTPException(
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                detail="删除项目时发生内部错误。"
+            )
+
     def upload_code(self, project_id: int, file: UploadFile) -> dict:
         """
         上传、解压并验证项目的代码包。
