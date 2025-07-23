@@ -217,8 +217,12 @@ class ContainerService:
                     name=container_name,
                     ports=ports_mapping,
                     volumes=volumes_mapping,
-                    shm_size='512m', # 增加共享内存大小，防止浏览器崩溃
-                    network='dispider_backend_dispider-net' # 确保与 docker-compose.yml 中定义的网络一致
+                    shm_size='512m',  # 增加共享内存大小，防止浏览器崩溃
+                    network='dispider_backend_dispider-net',  # 确保与 docker-compose.yml 中定义的网络一致
+                    # Chrome浏览器运行所需的安全配置
+                    cap_add=['SYS_ADMIN'],  # 添加系统管理员权限，Chrome沙盒模式需要
+                    security_opt=['seccomp=unconfined'],  # 取消seccomp限制，允许Chrome执行某些系统调用
+                    privileged=True  # 特权模式运行，确保Chrome能正常启动（可选，如果上面两个参数足够可以设为False）
                 )
 
                 # 重新加载容器对象以获取网络信息
