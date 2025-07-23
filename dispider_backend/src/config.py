@@ -7,9 +7,7 @@ class Settings(BaseSettings):
     """
     APP_TITLE: str = "Dispider"
     APP_DESCRIPTION: str = "Dispider Backend API"
-    SECRET_KEY: str
     DEBUG: bool = False
-    ALGORITHM: str = "HS256"
     CONTAINER_HOST: str = "http://localhost"
 
     # Database settings
@@ -32,6 +30,11 @@ class Settings(BaseSettings):
     API_BASE_URL: str
     # Proxy settings
     PROXY_URL: str
+
+    # JWT settings
+    SECRET_KEY: str
+    ALGORITHM: str
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 7  # 7天，默认值
 
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
 

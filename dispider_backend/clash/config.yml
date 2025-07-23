@@ -1,0 +1,1772 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: Rule
+log-level: info
+external-controller: 0.0.0.0:9090
+secret: ''
+proxies:
+- name: ASYNCHRONOUS TRANSFERMODE 永久虚通路连接PVCC B01
+  type: ss
+  server: pccw01.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: ASYNCHRONOUS TRANSFERMODE 永久虚通路连接PVCC B02
+  type: ss
+  server: pccw02.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: ASYNCHRONOUS TRANSFERMODE 永久虚通路连接PVCC B03
+  type: ss
+  server: pccw03.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: ASYNCHRONOUS TRANSFERMODE 永久虚通路连接PVCC B04
+  type: ss
+  server: pccw04.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: ASYNCHRONOUS TRANSFERMODE 永久虚通路连接PVCC B05
+  type: ss
+  server: pccw05.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: ASYNCHRONOUS TRANSFERMODE 永久虚通路连接PVCC B06
+  type: ss
+  server: pccw06.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: ASYNCHRONOUS TRANSFERMODE 永久虚通路连接PVCC B07
+  type: ss
+  server: pccw07.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: ASYNCHRONOUS TRANSFERMODE 永久虚通路连接PVCC B08
+  type: ss
+  server: pccw08.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: ASYNCHRONOUS TRANSFERMODE 永久虚通路连接PVCC B09
+  type: ss
+  server: pccw09.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: ASYNCHRONOUS TRANSFERMODE 永久虚通路连接PVCC B10
+  type: ss
+  server: pvcc01.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-加拿大 IPLC B01
+  type: ss
+  server: ca01.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-加拿大 IPLC B02
+  type: ss
+  server: ca02.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-加拿大 IPLC B03
+  type: ss
+  server: ca03.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-加拿大 IPLC B04
+  type: ss
+  server: ca04.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-加拿大 IPLC B05
+  type: ss
+  server: ca05.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 美国实验性 IEPL 中继 B01
+  type: ss
+  server: us06.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 美国实验性 IEPL 中继 B02
+  type: ss
+  server: us07.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 美国实验性 IEPL 中继 B03
+  type: ss
+  server: us08.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 美国实验性 IEPL 中继 B04
+  type: ss
+  server: us09.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 美国实验性 IEPL 中继 B05
+  type: ss
+  server: us10.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 美国高级 IEPL 中继 B01
+  type: ss
+  server: us01.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 美国高级 IEPL 中继 B02
+  type: ss
+  server: us02.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 美国高级 IEPL 中继 B03
+  type: ss
+  server: us03.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 美国高级 IEPL 中继 B04
+  type: ss
+  server: us04.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 美国高级 IEPL 中继 B05
+  type: ss
+  server: us05.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-印度 IPLC B01 孟买
+  type: ss
+  server: in01.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-印度 IPLC B02 孟买
+  type: ss
+  server: in02.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-印度 IPLC B03 贾坎德
+  type: ss
+  server: in03.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-印度 IPLC B04 贾坎德
+  type: ss
+  server: in04.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-印度 IPLC B05 贾坎德
+  type: ss
+  server: in05.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-印度 IPLC B06 贾坎德
+  type: ss
+  server: in06.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-印度 IPLC B07 泰米尔纳德
+  type: ss
+  server: in07.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-印度 IPLC B08 泰米尔纳德
+  type: ss
+  server: in08.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-台湾IEPL Hinet固接 B01
+  type: ss
+  server: tw01.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-台湾IEPL Hinet固接 B02
+  type: ss
+  server: tw02.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-台湾IEPL Hinet固接 B03
+  type: ss
+  server: tw03.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-台湾IEPL Hinet固接 B04
+  type: ss
+  server: tw04.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-台湾IEPL Hinet固接 B05
+  type: ss
+  server: tw05.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-台湾IEPL Hinet固接 B06
+  type: ss
+  server: tw06.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-台湾IEPL Hinet固接 B07
+  type: ss
+  server: tw07.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-台湾IEPL Hinet固接 B08
+  type: ss
+  server: tw08.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-台湾IEPL Hinet固接 B09
+  type: ss
+  server: tw09.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-台湾嘉义 IPLC B01 游戏专线Netflix 动画疯
+  type: ss
+  server: twgame01.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-台湾嘉义 IPLC B02 游戏专线Netflix 动画疯
+  type: ss
+  server: twgame02.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-台湾嘉义 IPLC B03 游戏专线Netflix 动画疯
+  type: ss
+  server: twgame03.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-台湾嘉义 IPLC B04 游戏专线Netflix 动画疯
+  type: ss
+  server: twgame04.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-台湾嘉义 IPLC B05 游戏专线Netflix 动画疯
+  type: ss
+  server: twgame05.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-台湾嘉义 IPLC B06 游戏专线Netflix 动画疯
+  type: ss
+  server: twgame06.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-台湾嘉义 IPLC B07 游戏专线Netflix 动画疯
+  type: ss
+  server: twgame07.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-台湾嘉义 IPLC B08 游戏专线Netflix 动画疯
+  type: ss
+  server: twgame08.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-台湾嘉义 IPLC B09 游戏专线Netflix 动画疯
+  type: ss
+  server: twgame09.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-台湾高雄 IPLC B01 Netflix 动画疯
+  type: ss
+  server: twct01.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-台湾高雄 IPLC B02 Netflix 动画疯
+  type: ss
+  server: twct02.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-台湾高雄 IPLC B03 Netflix 动画疯
+  type: ss
+  server: twct03.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-台湾高雄 IPLC B04 Netflix 动画疯
+  type: ss
+  server: twct04.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-台湾高雄 IPLC B05 Netflix 动画疯
+  type: ss
+  server: twct05.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-台湾高雄 IPLC B06 Netflix 动画疯
+  type: ss
+  server: twct06.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-台湾高雄 IPLC B07 Netflix 动画疯
+  type: ss
+  server: twct07.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-台湾高雄 IPLC B08 Netflix 动画疯
+  type: ss
+  server: twct08.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-台湾高雄 IPLC B09 Netflix 动画疯
+  type: ss
+  server: twct09.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-日本 多协议标签交换虚拟专用网 B1 1000Mbps
+  type: ss
+  server: hr01.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-日本 多协议标签交换虚拟专用网 B2 1000Mbps
+  type: ss
+  server: hr02.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-日本 多协议标签交换虚拟专用网 B3 1000Mbps
+  type: ss
+  server: hr03.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-日本 多协议标签交换虚拟专用网 B4 1000Mbps
+  type: ss
+  server: hr04.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-日本 多协议标签交换虚拟专用网 B6 1000Mbps
+  type: ss
+  server: hr06.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-日本 多协议标签交换虚拟专用网 B7 1000Mbps
+  type: ss
+  server: hr07.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-日本 多协议标签交换虚拟专用网 B8 1000Mbps
+  type: ss
+  server: hr08.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-日本 多协议标签交换虚拟专用网 B9 1000Mbps
+  type: ss
+  server: hr09.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-日本 沪日IEPL传输 Equinix-TY8 B01 Netflix
+  type: ss
+  server: hr11.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-日本 沪日IEPL传输 Equinix-TY8 B02 Netflix
+  type: ss
+  server: hr12.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-日本 沪日IEPL传输 Equinix-TY8 B03 Netflix
+  type: ss
+  server: hr13.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-日本 沪日IEPL传输 Equinix-TY8 B04 Netflix
+  type: ss
+  server: hr14.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-日本 沪日IEPL传输 Equinix-TY8 B05 Netflix
+  type: ss
+  server: hr15.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-日本 沪日IEPL传输 Equinix-TY8 B06 Netflix
+  type: ss
+  server: hr16.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-日本 沪日IEPL传输 Equinix-TY8 B07 Netflix
+  type: ss
+  server: hr17.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-日本 沪日IEPL传输 Equinix-TY8 B08 Netflix
+  type: ss
+  server: hr18.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-日本 沪日IEPL传输 Equinix-TY8 B09 Netflix
+  type: ss
+  server: hr19.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-日本 沪日IEPL传输 Equinix-TY8 B10 Netflix
+  type: ss
+  server: hr10.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-韩国 IPLC B01 Netflix
+  type: ss
+  server: kr01.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-韩国 IPLC B02 Netflix
+  type: ss
+  server: kr02.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-韩国 IPLC B03 Netflix
+  type: ss
+  server: kr03.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-韩国 IPLC B04 Netflix
+  type: ss
+  server: kr04.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-韩国 IPLC B05 Netflix
+  type: ss
+  server: kr05.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-韩国 IPLC B06 Netflix
+  type: ss
+  server: kr06.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-韩国 IPLC B07 Netflix
+  type: ss
+  server: kr07.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-韩国 IPLC B08 Netflix
+  type: ss
+  server: kr08.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-韩国 IPLC B09 Netflix
+  type: ss
+  server: kr09.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-韩国 IPLC B10 Netflix
+  type: ss
+  server: kr10.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-韩国首尔 游戏IEPL B 01 Netflix 原生游戏解锁
+  type: ss
+  server: krgame01.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-韩国首尔 游戏IEPL B 02 Netflix 原生游戏解锁
+  type: ss
+  server: krgame02.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-韩国首尔 游戏IEPL B 03 Netflix 原生游戏解锁
+  type: ss
+  server: krgame03.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-韩国首尔 游戏IEPL B 04 Netflix 原生游戏解锁
+  type: ss
+  server: krgame04.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-韩国首尔 游戏IEPL B 05 Netflix 原生游戏解锁
+  type: ss
+  server: krgame05.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-韩国首尔 游戏IEPL B 06 Netflix 原生游戏解锁
+  type: ss
+  server: krgame06.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-韩国首尔 游戏IEPL B 07 Netflix 原生游戏解锁
+  type: ss
+  server: krgame07.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-韩国首尔 游戏IEPL B 08 Netflix 原生游戏解锁
+  type: ss
+  server: krgame08.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-韩国首尔 游戏IEPL B 09 Netflix 原生游戏解锁
+  type: ss
+  server: krgame09.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-韩国首尔 游戏IEPL B 10 Netflix 原生游戏解锁
+  type: ss
+  server: krgame10.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-香港 IEPL Equinix HK2 B 01 1Gbps HBO TVB
+  type: ss
+  server: sg01.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-香港 IEPL Equinix HK2 B 02 1Gbps HBO TVB
+  type: ss
+  server: sg02.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-香港 IEPL Equinix HK2 B 03 1Gbps HBO TVB
+  type: ss
+  server: sg03.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-香港 IEPL Equinix HK2 B 04 1Gbps HBO TVB
+  type: ss
+  server: sg04.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-香港 IEPL Equinix HK2 B 05 1Gbps HBO TVB
+  type: ss
+  server: sg05.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-香港 IEPL Equinix HK2 B 06 1Gbps HBO TVB
+  type: ss
+  server: sg06.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-香港 IEPL Equinix HK2 B 07 1Gbps HBO TVB
+  type: ss
+  server: sg07.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-香港 IEPL Equinix HK2 B 08 1Gbps HBO TVB
+  type: ss
+  server: sg08.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 中国-香港 IEPL Equinix HK2 B 09 1Gbps HBO TVB
+  type: ss
+  server: sg09.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 新加坡 Legacy Magic IEPL 中继 B01 Netflix
+  type: ss
+  server: sgp01.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 新加坡 Legacy Magic IEPL 中继 B02 Netflix
+  type: ss
+  server: sgp02.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 新加坡 Legacy Magic IEPL 中继 B03 Netflix
+  type: ss
+  server: sgp03.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 新加坡 Legacy Magic IEPL 中继 B04 Netflix
+  type: ss
+  server: sgp04.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 新加坡 Legacy Magic IEPL 中继 B05 Netflix
+  type: ss
+  server: sgp05.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 新加坡 Magic IEPL 中继 B01 Netflix
+  type: ss
+  server: sgp06.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 新加坡 Magic IEPL 中继 B02 Netflix
+  type: ss
+  server: sgp07.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 新加坡 Magic IEPL 中继 B03 Netflix
+  type: ss
+  server: sgp08.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 新加坡 Magic IEPL 中继 B04 Netflix
+  type: ss
+  server: sgp09.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 新加坡 Magic IEPL 中继 B05 Netflix
+  type: ss
+  server: sgp10.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 新加坡高级 IEPL 中继 B01 Netflix
+  type: ss
+  server: sgp11.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 新加坡高级 IEPL 中继 B02 Netflix
+  type: ss
+  server: sgp12.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 日本 ソフトバンク B01 500Mbps 1倍 Netflix
+  type: ss
+  server: jp06.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 日本 ソフトバンク B02 500Mbps 1倍 Netflix
+  type: ss
+  server: jp07.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 日本 ソフトバンク B03 500Mbps 1倍 Netflix
+  type: ss
+  server: jp08.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 日本 ソフトバンク B04 500Mbps 1倍 Netflix
+  type: ss
+  server: jp09.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 日本 ソフトバンク B05 500Mbps 1倍 Netflix
+  type: ss
+  server: jp10.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 日本 まつやまし auひかり ホーム1ギガ B 01
+  type: ss
+  server: jp01.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 日本 まつやまし auひかり ホーム1ギガ B 02
+  type: ss
+  server: jp02.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 日本 まつやまし auひかり ホーム1ギガ B 03
+  type: ss
+  server: jp03.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 日本 まつやまし auひかり ホーム1ギガ B 04
+  type: ss
+  server: jp04.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 日本 まつやまし auひかり ホーム1ギガ B 06
+  type: ss
+  server: jp27.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 日本 まつやまし auひかり ホーム1ギガ B 07
+  type: ss
+  server: jp28.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 日本 まつやまし auひかり ホーム1ギガ B 08
+  type: ss
+  server: jp29.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 日本 まつやまし auひかり ホーム1ギガ B 09
+  type: ss
+  server: jp30.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 日本 まつやまし auひかり ホーム1ギガ B 10
+  type: ss
+  server: jp31.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 日本 まつやまし auひかり ホーム1ギガ B 11
+  type: ss
+  server: jp32.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 日本 まつやまし auひかり ホーム1ギガ B 12
+  type: ss
+  server: jp22.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 日本 まつやまし auひかり ホーム1ギガ B 13
+  type: ss
+  server: jp23.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 日本 まつやまし auひかり ホーム1ギガ B 14
+  type: ss
+  server: jp24.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 日本 まつやまし auひかり ホーム1ギガ B 15
+  type: ss
+  server: jp25.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 日本 まつやまし auひかり ホーム1ギガ B 16
+  type: ss
+  server: jp26.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 日本大阪 オプテージ B 01
+  type: ss
+  server: jp14.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 日本大阪 オプテージ B 02
+  type: ss
+  server: jp15.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 日本大阪 オプテージ B 03
+  type: ss
+  server: jp16.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 日本大阪 オプテージ B 04
+  type: ss
+  server: jp17.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 日本大阪 オプテージ B 05
+  type: ss
+  server: jp18.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 日本大阪 オプテージ B 06
+  type: ss
+  server: jp19.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 日本大阪 オプテージ B 07
+  type: ss
+  server: jp20.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 韩国 전라북도 전주시 商宽 B 01
+  type: ss
+  server: krsk01.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 韩国 전라북도 전주시 商宽 B 02
+  type: ss
+  server: krsk02.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 韩国 전라북도 전주시 商宽 B 03
+  type: ss
+  server: krsk03.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 韩国 전라북도 전주시 商宽 B 04
+  type: ss
+  server: krsk04.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 韩国 전라북도 전주시 商宽 B 05
+  type: ss
+  server: krsk05.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 韩国 전라북도 전주시 商宽 B 06
+  type: ss
+  server: krsk06.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 韩国 전라북도 전주시 商宽 B 07
+  type: ss
+  server: krsk07.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 韩国 전라북도 전주시 商宽 B 08
+  type: ss
+  server: krsk08.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 韩国 전라북도 전주시 商宽 B 09
+  type: ss
+  server: krsk09.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 韩国 전라북도 전주시 商宽 B 10
+  type: ss
+  server: krsk10.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 香港 01
+  type: ss
+  server: 211.99.97.3
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 香港 02
+  type: ss
+  server: 211.99.97.4
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 香港 03
+  type: ss
+  server: 211.99.97.5
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 香港 04
+  type: ss
+  server: 211.99.97.6
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 香港 05
+  type: ss
+  server: 211.99.97.7
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 香港 06
+  type: ss
+  server: 211.99.97.8
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 香港 07
+  type: ss
+  server: 211.99.97.9
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 香港 08
+  type: ss
+  server: 211.99.97.10
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 香港 09
+  type: ss
+  server: 211.99.97.11
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 香港 10
+  type: ss
+  server: 211.99.97.12
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 香港 11
+  type: ss
+  server: 211.99.97.13
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 香港 12
+  type: ss
+  server: 211.99.97.14
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 香港 13
+  type: ss
+  server: 211.99.97.15
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 香港 14
+  type: ss
+  server: 211.99.97.16
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 香港 15
+  type: ss
+  server: 211.99.97.17
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 香港 17
+  type: ss
+  server: 211.99.97.19
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 香港 18
+  type: ss
+  server: 211.99.97.20
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 香港 19
+  type: ss
+  server: 211.99.97.21
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 香港 20
+  type: ss
+  server: 211.99.97.22
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 香港 油尖旺御金·国峯 網上行寬頻 B01
+  type: ss
+  server: hkt01.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 香港 油尖旺御金·国峯 網上行寬頻 B02
+  type: ss
+  server: hkt02.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 香港 油尖旺御金·国峯 網上行寬頻 B03
+  type: ss
+  server: hkt03.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 香港 油尖旺御金·国峯 網上行寬頻 B04
+  type: ss
+  server: hkt04.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 香港 油尖旺御金·国峯 網上行寬頻 B05
+  type: ss
+  server: hkt05.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 香港 油尖旺御金·国峯 網上行寬頻 B06
+  type: ss
+  server: hkt06.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+- name: 香港 油尖旺御金·国峯 網上行寬頻 B07
+  type: ss
+  server: hkt07.graniterapids.com
+  port: 51357
+  cipher: rc4-md5
+  password: FX08kA
+  udp: true
+proxy-groups:
+- name: '[Auto] 香港-01'
+  type: url-test
+  proxies:
+  - 中国-香港 IEPL Equinix HK2 B 01 1Gbps HBO TVB
+  - 中国-香港 IEPL Equinix HK2 B 02 1Gbps HBO TVB
+  - 中国-香港 IEPL Equinix HK2 B 03 1Gbps HBO TVB
+  - 中国-香港 IEPL Equinix HK2 B 04 1Gbps HBO TVB
+  - 中国-香港 IEPL Equinix HK2 B 05 1Gbps HBO TVB
+  url: http://www.gstatic.com/generate_204
+  interval: 30
+  tolerance: 50
+  timeout: 3000
+  lazy: false
+- name: '[Auto] 香港-02'
+  type: url-test
+  proxies:
+  - 中国-香港 IEPL Equinix HK2 B 06 1Gbps HBO TVB
+  - 中国-香港 IEPL Equinix HK2 B 07 1Gbps HBO TVB
+  - 中国-香港 IEPL Equinix HK2 B 08 1Gbps HBO TVB
+  - 中国-香港 IEPL Equinix HK2 B 09 1Gbps HBO TVB
+  - 香港 01
+  url: http://www.gstatic.com/generate_204
+  interval: 30
+  tolerance: 50
+  timeout: 3000
+  lazy: false
+- name: '[Auto] 香港-03'
+  type: url-test
+  proxies:
+  - 香港 02
+  - 香港 03
+  - 香港 04
+  - 香港 05
+  - 香港 06
+  url: http://www.gstatic.com/generate_204
+  interval: 30
+  tolerance: 50
+  timeout: 3000
+  lazy: false
+- name: '[Auto] 香港-04'
+  type: url-test
+  proxies:
+  - 香港 07
+  - 香港 08
+  - 香港 09
+  - 香港 10
+  - 香港 11
+  url: http://www.gstatic.com/generate_204
+  interval: 30
+  tolerance: 50
+  timeout: 3000
+  lazy: false
+- name: '[Auto] 香港-05'
+  type: url-test
+  proxies:
+  - 香港 12
+  - 香港 13
+  - 香港 14
+  - 香港 15
+  - 香港 17
+  url: http://www.gstatic.com/generate_204
+  interval: 30
+  tolerance: 50
+  timeout: 3000
+  lazy: false
+- name: '[Auto] 香港-06'
+  type: url-test
+  proxies:
+  - 香港 18
+  - 香港 19
+  - 香港 20
+  - 香港 油尖旺御金·国峯 網上行寬頻 B01
+  - 香港 油尖旺御金·国峯 網上行寬頻 B02
+  url: http://www.gstatic.com/generate_204
+  interval: 30
+  tolerance: 50
+  timeout: 3000
+  lazy: false
+- name: '[Auto] 香港-07'
+  type: url-test
+  proxies:
+  - 香港 油尖旺御金·国峯 網上行寬頻 B03
+  - 香港 油尖旺御金·国峯 網上行寬頻 B04
+  - 香港 油尖旺御金·国峯 網上行寬頻 B05
+  - 香港 油尖旺御金·国峯 網上行寬頻 B06
+  - 香港 油尖旺御金·国峯 網上行寬頻 B07
+  url: http://www.gstatic.com/generate_204
+  interval: 30
+  tolerance: 50
+  timeout: 3000
+  lazy: false
+- name: '[Auto] 台湾-01'
+  type: url-test
+  proxies:
+  - 中国-台湾IEPL Hinet固接 B01
+  - 中国-台湾IEPL Hinet固接 B02
+  - 中国-台湾IEPL Hinet固接 B03
+  - 中国-台湾IEPL Hinet固接 B04
+  - 中国-台湾IEPL Hinet固接 B05
+  url: http://www.gstatic.com/generate_204
+  interval: 30
+  tolerance: 50
+  timeout: 3000
+  lazy: false
+- name: '[Auto] 台湾-02'
+  type: url-test
+  proxies:
+  - 中国-台湾IEPL Hinet固接 B06
+  - 中国-台湾IEPL Hinet固接 B07
+  - 中国-台湾IEPL Hinet固接 B08
+  - 中国-台湾IEPL Hinet固接 B09
+  - 中国-台湾嘉义 IPLC B01 游戏专线Netflix 动画疯
+  url: http://www.gstatic.com/generate_204
+  interval: 30
+  tolerance: 50
+  timeout: 3000
+  lazy: false
+- name: '[Auto] 台湾-03'
+  type: url-test
+  proxies:
+  - 中国-台湾嘉义 IPLC B02 游戏专线Netflix 动画疯
+  - 中国-台湾嘉义 IPLC B03 游戏专线Netflix 动画疯
+  - 中国-台湾嘉义 IPLC B04 游戏专线Netflix 动画疯
+  - 中国-台湾嘉义 IPLC B05 游戏专线Netflix 动画疯
+  - 中国-台湾嘉义 IPLC B06 游戏专线Netflix 动画疯
+  url: http://www.gstatic.com/generate_204
+  interval: 30
+  tolerance: 50
+  timeout: 3000
+  lazy: false
+- name: '[Auto] 台湾-04'
+  type: url-test
+  proxies:
+  - 中国-台湾嘉义 IPLC B07 游戏专线Netflix 动画疯
+  - 中国-台湾嘉义 IPLC B08 游戏专线Netflix 动画疯
+  - 中国-台湾嘉义 IPLC B09 游戏专线Netflix 动画疯
+  - 中国-台湾高雄 IPLC B01 Netflix 动画疯
+  - 中国-台湾高雄 IPLC B02 Netflix 动画疯
+  url: http://www.gstatic.com/generate_204
+  interval: 30
+  tolerance: 50
+  timeout: 3000
+  lazy: false
+- name: '[Auto] 台湾-05'
+  type: url-test
+  proxies:
+  - 中国-台湾高雄 IPLC B03 Netflix 动画疯
+  - 中国-台湾高雄 IPLC B04 Netflix 动画疯
+  - 中国-台湾高雄 IPLC B05 Netflix 动画疯
+  - 中国-台湾高雄 IPLC B06 Netflix 动画疯
+  - 中国-台湾高雄 IPLC B07 Netflix 动画疯
+  url: http://www.gstatic.com/generate_204
+  interval: 30
+  tolerance: 50
+  timeout: 3000
+  lazy: false
+- name: '[Auto] 台湾-06'
+  type: url-test
+  proxies:
+  - 中国-台湾高雄 IPLC B08 Netflix 动画疯
+  - 中国-台湾高雄 IPLC B09 Netflix 动画疯
+  url: http://www.gstatic.com/generate_204
+  interval: 30
+  tolerance: 50
+  timeout: 3000
+  lazy: false
+- name: '[Auto] 日本-01'
+  type: url-test
+  proxies:
+  - 中国-日本 多协议标签交换虚拟专用网 B1 1000Mbps
+  - 中国-日本 多协议标签交换虚拟专用网 B2 1000Mbps
+  - 中国-日本 多协议标签交换虚拟专用网 B3 1000Mbps
+  - 中国-日本 多协议标签交换虚拟专用网 B4 1000Mbps
+  - 中国-日本 多协议标签交换虚拟专用网 B6 1000Mbps
+  url: http://www.gstatic.com/generate_204
+  interval: 30
+  tolerance: 50
+  timeout: 3000
+  lazy: false
+- name: '[Auto] 日本-02'
+  type: url-test
+  proxies:
+  - 中国-日本 多协议标签交换虚拟专用网 B7 1000Mbps
+  - 中国-日本 多协议标签交换虚拟专用网 B8 1000Mbps
+  - 中国-日本 多协议标签交换虚拟专用网 B9 1000Mbps
+  - 中国-日本 沪日IEPL传输 Equinix-TY8 B01 Netflix
+  - 中国-日本 沪日IEPL传输 Equinix-TY8 B02 Netflix
+  url: http://www.gstatic.com/generate_204
+  interval: 30
+  tolerance: 50
+  timeout: 3000
+  lazy: false
+- name: '[Auto] 日本-03'
+  type: url-test
+  proxies:
+  - 中国-日本 沪日IEPL传输 Equinix-TY8 B03 Netflix
+  - 中国-日本 沪日IEPL传输 Equinix-TY8 B04 Netflix
+  - 中国-日本 沪日IEPL传输 Equinix-TY8 B05 Netflix
+  - 中国-日本 沪日IEPL传输 Equinix-TY8 B06 Netflix
+  - 中国-日本 沪日IEPL传输 Equinix-TY8 B07 Netflix
+  url: http://www.gstatic.com/generate_204
+  interval: 30
+  tolerance: 50
+  timeout: 3000
+  lazy: false
+- name: '[Auto] 日本-04'
+  type: url-test
+  proxies:
+  - 中国-日本 沪日IEPL传输 Equinix-TY8 B08 Netflix
+  - 中国-日本 沪日IEPL传输 Equinix-TY8 B09 Netflix
+  - 中国-日本 沪日IEPL传输 Equinix-TY8 B10 Netflix
+  - 日本 ソフトバンク B01 500Mbps 1倍 Netflix
+  - 日本 ソフトバンク B02 500Mbps 1倍 Netflix
+  url: http://www.gstatic.com/generate_204
+  interval: 30
+  tolerance: 50
+  timeout: 3000
+  lazy: false
+- name: '[Auto] 日本-05'
+  type: url-test
+  proxies:
+  - 日本 ソフトバンク B03 500Mbps 1倍 Netflix
+  - 日本 ソフトバンク B04 500Mbps 1倍 Netflix
+  - 日本 ソフトバンク B05 500Mbps 1倍 Netflix
+  - 日本 まつやまし auひかり ホーム1ギガ B 01
+  - 日本 まつやまし auひかり ホーム1ギガ B 02
+  url: http://www.gstatic.com/generate_204
+  interval: 30
+  tolerance: 50
+  timeout: 3000
+  lazy: false
+- name: '[Auto] 日本-06'
+  type: url-test
+  proxies:
+  - 日本 まつやまし auひかり ホーム1ギガ B 03
+  - 日本 まつやまし auひかり ホーム1ギガ B 04
+  - 日本 まつやまし auひかり ホーム1ギガ B 06
+  - 日本 まつやまし auひかり ホーム1ギガ B 07
+  - 日本 まつやまし auひかり ホーム1ギガ B 08
+  url: http://www.gstatic.com/generate_204
+  interval: 30
+  tolerance: 50
+  timeout: 3000
+  lazy: false
+- name: '[Auto] 日本-07'
+  type: url-test
+  proxies:
+  - 日本 まつやまし auひかり ホーム1ギガ B 09
+  - 日本 まつやまし auひかり ホーム1ギガ B 10
+  - 日本 まつやまし auひかり ホーム1ギガ B 11
+  - 日本 まつやまし auひかり ホーム1ギガ B 12
+  - 日本 まつやまし auひかり ホーム1ギガ B 13
+  url: http://www.gstatic.com/generate_204
+  interval: 30
+  tolerance: 50
+  timeout: 3000
+  lazy: false
+- name: '[Auto] 日本-08'
+  type: url-test
+  proxies:
+  - 日本 まつやまし auひかり ホーム1ギガ B 14
+  - 日本 まつやまし auひかり ホーム1ギガ B 15
+  - 日本 まつやまし auひかり ホーム1ギガ B 16
+  - 日本大阪 オプテージ B 01
+  - 日本大阪 オプテージ B 02
+  url: http://www.gstatic.com/generate_204
+  interval: 30
+  tolerance: 50
+  timeout: 3000
+  lazy: false
+- name: '[Auto] 日本-09'
+  type: url-test
+  proxies:
+  - 日本大阪 オプテージ B 03
+  - 日本大阪 オプテージ B 04
+  - 日本大阪 オプテージ B 05
+  - 日本大阪 オプテージ B 06
+  - 日本大阪 オプテージ B 07
+  url: http://www.gstatic.com/generate_204
+  interval: 30
+  tolerance: 50
+  timeout: 3000
+  lazy: false
+- name: '[Auto] 新加坡-01'
+  type: url-test
+  proxies:
+  - 新加坡 Legacy Magic IEPL 中继 B01 Netflix
+  - 新加坡 Legacy Magic IEPL 中继 B02 Netflix
+  - 新加坡 Legacy Magic IEPL 中继 B03 Netflix
+  - 新加坡 Legacy Magic IEPL 中继 B04 Netflix
+  - 新加坡 Legacy Magic IEPL 中继 B05 Netflix
+  url: http://www.gstatic.com/generate_204
+  interval: 30
+  tolerance: 50
+  timeout: 3000
+  lazy: false
+- name: '[Auto] 新加坡-02'
+  type: url-test
+  proxies:
+  - 新加坡 Magic IEPL 中继 B01 Netflix
+  - 新加坡 Magic IEPL 中继 B02 Netflix
+  - 新加坡 Magic IEPL 中继 B03 Netflix
+  - 新加坡 Magic IEPL 中继 B04 Netflix
+  - 新加坡 Magic IEPL 中继 B05 Netflix
+  url: http://www.gstatic.com/generate_204
+  interval: 30
+  tolerance: 50
+  timeout: 3000
+  lazy: false
+- name: '[Auto] 新加坡-03'
+  type: url-test
+  proxies:
+  - 新加坡高级 IEPL 中继 B01 Netflix
+  - 新加坡高级 IEPL 中继 B02 Netflix
+  url: http://www.gstatic.com/generate_204
+  interval: 30
+  tolerance: 50
+  timeout: 3000
+  lazy: false
+- name: '[Auto] 美国-01'
+  type: url-test
+  proxies:
+  - ASYNCHRONOUS TRANSFERMODE 永久虚通路连接PVCC B01
+  - ASYNCHRONOUS TRANSFERMODE 永久虚通路连接PVCC B02
+  - ASYNCHRONOUS TRANSFERMODE 永久虚通路连接PVCC B03
+  - ASYNCHRONOUS TRANSFERMODE 永久虚通路连接PVCC B04
+  - ASYNCHRONOUS TRANSFERMODE 永久虚通路连接PVCC B05
+  url: http://www.gstatic.com/generate_204
+  interval: 30
+  tolerance: 50
+  timeout: 3000
+  lazy: false
+- name: '[Auto] 美国-02'
+  type: url-test
+  proxies:
+  - ASYNCHRONOUS TRANSFERMODE 永久虚通路连接PVCC B06
+  - ASYNCHRONOUS TRANSFERMODE 永久虚通路连接PVCC B07
+  - ASYNCHRONOUS TRANSFERMODE 永久虚通路连接PVCC B08
+  - ASYNCHRONOUS TRANSFERMODE 永久虚通路连接PVCC B09
+  - ASYNCHRONOUS TRANSFERMODE 永久虚通路连接PVCC B10
+  url: http://www.gstatic.com/generate_204
+  interval: 30
+  tolerance: 50
+  timeout: 3000
+  lazy: false
+- name: '[Auto] 美国-03'
+  type: url-test
+  proxies:
+  - 美国实验性 IEPL 中继 B01
+  - 美国实验性 IEPL 中继 B02
+  - 美国实验性 IEPL 中继 B03
+  - 美国实验性 IEPL 中继 B04
+  - 美国实验性 IEPL 中继 B05
+  url: http://www.gstatic.com/generate_204
+  interval: 30
+  tolerance: 50
+  timeout: 3000
+  lazy: false
+- name: '[Auto] 美国-04'
+  type: url-test
+  proxies:
+  - 美国高级 IEPL 中继 B01
+  - 美国高级 IEPL 中继 B02
+  - 美国高级 IEPL 中继 B03
+  - 美国高级 IEPL 中继 B04
+  - 美国高级 IEPL 中继 B05
+  url: http://www.gstatic.com/generate_204
+  interval: 30
+  tolerance: 50
+  timeout: 3000
+  lazy: false
+- name: '[Auto] 韩国-01'
+  type: url-test
+  proxies:
+  - 中国-韩国 IPLC B01 Netflix
+  - 中国-韩国 IPLC B02 Netflix
+  - 中国-韩国 IPLC B03 Netflix
+  - 中国-韩国 IPLC B04 Netflix
+  - 中国-韩国 IPLC B05 Netflix
+  url: http://www.gstatic.com/generate_204
+  interval: 30
+  tolerance: 50
+  timeout: 3000
+  lazy: false
+- name: '[Auto] 韩国-02'
+  type: url-test
+  proxies:
+  - 中国-韩国 IPLC B06 Netflix
+  - 中国-韩国 IPLC B07 Netflix
+  - 中国-韩国 IPLC B08 Netflix
+  - 中国-韩国 IPLC B09 Netflix
+  - 中国-韩国 IPLC B10 Netflix
+  url: http://www.gstatic.com/generate_204
+  interval: 30
+  tolerance: 50
+  timeout: 3000
+  lazy: false
+- name: '[Auto] 韩国-03'
+  type: url-test
+  proxies:
+  - 中国-韩国首尔 游戏IEPL B 01 Netflix 原生游戏解锁
+  - 中国-韩国首尔 游戏IEPL B 02 Netflix 原生游戏解锁
+  - 中国-韩国首尔 游戏IEPL B 03 Netflix 原生游戏解锁
+  - 中国-韩国首尔 游戏IEPL B 04 Netflix 原生游戏解锁
+  - 中国-韩国首尔 游戏IEPL B 05 Netflix 原生游戏解锁
+  url: http://www.gstatic.com/generate_204
+  interval: 30
+  tolerance: 50
+  timeout: 3000
+  lazy: false
+- name: '[Auto] 韩国-04'
+  type: url-test
+  proxies:
+  - 中国-韩国首尔 游戏IEPL B 06 Netflix 原生游戏解锁
+  - 中国-韩国首尔 游戏IEPL B 07 Netflix 原生游戏解锁
+  - 中国-韩国首尔 游戏IEPL B 08 Netflix 原生游戏解锁
+  - 中国-韩国首尔 游戏IEPL B 09 Netflix 原生游戏解锁
+  - 中国-韩国首尔 游戏IEPL B 10 Netflix 原生游戏解锁
+  url: http://www.gstatic.com/generate_204
+  interval: 30
+  tolerance: 50
+  timeout: 3000
+  lazy: false
+- name: '[Auto] 韩国-05'
+  type: url-test
+  proxies:
+  - 韩国 전라북도 전주시 商宽 B 01
+  - 韩国 전라북도 전주시 商宽 B 02
+  - 韩国 전라북도 전주시 商宽 B 03
+  - 韩国 전라북도 전주시 商宽 B 04
+  - 韩国 전라북도 전주시 商宽 B 05
+  url: http://www.gstatic.com/generate_204
+  interval: 30
+  tolerance: 50
+  timeout: 3000
+  lazy: false
+- name: '[Auto] 韩国-06'
+  type: url-test
+  proxies:
+  - 韩国 전라북도 전주시 商宽 B 06
+  - 韩国 전라북도 전주시 商宽 B 07
+  - 韩国 전라북도 전주시 商宽 B 08
+  - 韩国 전라북도 전주시 商宽 B 09
+  - 韩国 전라북도 전주시 商宽 B 10
+  url: http://www.gstatic.com/generate_204
+  interval: 30
+  tolerance: 50
+  timeout: 3000
+  lazy: false
+- name: '[Auto] 加拿大'
+  type: url-test
+  proxies:
+  - 中国-加拿大 IPLC B01
+  - 中国-加拿大 IPLC B02
+  - 中国-加拿大 IPLC B03
+  - 中国-加拿大 IPLC B04
+  - 中国-加拿大 IPLC B05
+  url: http://www.gstatic.com/generate_204
+  interval: 30
+  tolerance: 50
+  timeout: 3000
+  lazy: false
+- name: '[Auto] 其他-01'
+  type: url-test
+  proxies:
+  - 中国-印度 IPLC B01 孟买
+  - 中国-印度 IPLC B02 孟买
+  - 中国-印度 IPLC B03 贾坎德
+  - 中国-印度 IPLC B04 贾坎德
+  - 中国-印度 IPLC B05 贾坎德
+  url: http://www.gstatic.com/generate_204
+  interval: 30
+  tolerance: 50
+  timeout: 3000
+  lazy: false
+- name: '[Auto] 其他-02'
+  type: url-test
+  proxies:
+  - 中国-印度 IPLC B06 贾坎德
+  - 中国-印度 IPLC B07 泰米尔纳德
+  - 中国-印度 IPLC B08 泰米尔纳德
+  url: http://www.gstatic.com/generate_204
+  interval: 30
+  tolerance: 50
+  timeout: 3000
+  lazy: false
+rules:
+- GEOIP,CN,DIRECT
+- MATCH,DIRECT

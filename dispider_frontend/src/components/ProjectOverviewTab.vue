@@ -7,7 +7,7 @@
       <el-descriptions-item label="容器数量">{{ project.container_count }}</el-descriptions-item>
       <el-descriptions-item label="待处理警报">{{ project.alert_count }}</el-descriptions-item>
     </el-descriptions>
-    <el-button type="primary" @click="goToContainers" style="margin-top: 20px;">
+    <el-button type="primary" style="margin-top: 20px;" @click="goToContainers">
       查看项目容器
     </el-button>
   </div>

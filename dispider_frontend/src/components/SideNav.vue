@@ -13,6 +13,10 @@
         <el-icon><Box /></el-icon>
         <span>容器</span>
       </el-menu-item>
+      <el-menu-item v-if="authStore.user?.is_super_admin" index="/proxies">
+        <el-icon><DataLine /></el-icon>
+        <span>代理</span>
+      </el-menu-item>
     </el-menu>
 
     <div class="user-menu">
@@ -34,7 +38,7 @@
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 import { useAuthStore } from '@/stores/auth';
-import { Folder, Box } from '@element-plus/icons-vue';
+import { Folder, Box, DataLine } from '@element-plus/icons-vue';
 
 const route = useRoute();
 const authStore = useAuthStore();

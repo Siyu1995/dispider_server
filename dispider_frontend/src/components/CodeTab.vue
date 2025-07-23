@@ -45,7 +45,7 @@
       <template #footer>
         <span class="dialog-footer">
           <el-button @click="uploadDialogVisible = false">取消</el-button>
-          <el-button type="primary" @click="submitUpload" :loading="isUploading">
+          <el-button type="primary" :loading="isUploading" @click="submitUpload">
             确认上传
           </el-button>
         </span>

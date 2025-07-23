@@ -20,6 +20,8 @@ from src.redis_client import get_redis_client # 导入 Redis 客户端
 from src.projects.models import Project # 导入 Project 模型
 from src.auth.models import User # 导入 User 模型
 from src.projects.members.models import ProjectMember, ProjectRole # 导入项目成员及角色模型
+from src.proxy_manager import service as proxy_manager_service
+from src.containers import schemas
 
 from src.config import settings
 
@@ -219,6 +221,21 @@ class ContainerService:
                     network='dispider_backend_dispider-net' # 确保与 docker-compose.yml 中定义的网络一致
                 )
 
+                # 重新加载容器对象以获取网络信息
+                docker_container.reload()
+                container_ip = docker_container.attrs['NetworkSettings']['Networks']['dispider_backend_dispider-net']['IPAddress']
+                
+                # 为新容器分配代理
+                try:
+                    assigned_group = proxy_manager_service.assign_proxy_to_container(container_ip)
+                    print(f"Assigned proxy group '{assigned_group}' to container {container_name} ({container_ip})")
+                except Exception as e:
+                    # 如果代理分配失败，这是一个需要关注的问题。
+                    # 可以选择停止并移除容器，或者仅仅记录一个错误。
+                    # 这里我们先打印错误，并让容器继续运行。
+                    print(f"CRITICAL: Failed to assign proxy to container {container_name}. Error: {e}")
+
+
                 # 3. 更新数据库记录，填入真实的 container_id 和状态
                 db_container.container_id = docker_container.id
                 db_container.status = 'running'
@@ -372,6 +389,19 @@ class ContainerService:
 
         try:
             container = client.containers.get(db_container.container_id)
+            
+            # 在停止和移除容器前，先释放其代理规则
+            try:
+                container_ip = container.attrs['NetworkSettings']['Networks']['dispider_backend_dispider-net']['IPAddress']
+                proxy_manager_service.release_proxy_from_container(container_ip)
+                logger.info(f"为容器 {db_container.container_name} ({container_ip}) 释放了代理规则。")
+            except Exception as e:
+                # 即使释放代理失败，也应该继续尝试移除容器，但需要记录这个严重错误
+                logger.error(
+                    f"CRITICAL: 释放容器 {db_container.container_name} 的代理规则时失败: {e}."
+                    "将继续移除容器，但这可能导致Clash配置中残留无效规则。"
+                )
+
             container.stop()
             container.remove()
             logger.info(f"Docker 容器 {db_container.container_name} 已成功停止并移除。")

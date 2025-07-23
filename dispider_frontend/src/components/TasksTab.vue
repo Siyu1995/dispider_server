@@ -104,7 +104,7 @@
     <!-- Section for Displaying Table Status -->
     <el-divider content-position="center">数据表状态</el-divider>
     <div class="status-header">
-      <el-button :icon="Refresh" circle @click="refreshStatus" :loading="isStatusLoading" />
+      <el-button :icon="Refresh" circle :loading="isStatusLoading" @click="refreshStatus" />
     </div>
 
     <el-row :gutter="20" class="status-row">

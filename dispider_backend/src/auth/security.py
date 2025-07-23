@@ -6,8 +6,8 @@ from src.config import settings
 
 # JWT 配置
 SECRET_KEY = settings.SECRET_KEY
-ALGORITHM = "HS256"
-ACCESS_TOKEN_EXPIRE_MINUTES = 30
+ALGORITHM = settings.ALGORITHM
+ACCESS_TOKEN_EXPIRE_MINUTES = settings.ACCESS_TOKEN_EXPIRE_MINUTES
 
 # OAuth2PasswordBearer 用于从请求的 Authorization 头中提取 Bearer Token
 # tokenUrl 指向获取 token 的端点路径。

@@ -2,7 +2,7 @@
   <el-card class="project-card" @click="emit('click')">
     <template #header>
       <div class="card-header">
-        <span @click="emit('click')" class="project-name">{{ project.name }}</span>
+        <span class="project-name" @click="emit('click')">{{ project.name }}</span>
         <div class="header-right">
           <el-tag :type="statusType">{{ project.status || '未知' }}</el-tag>
           <el-dropdown
