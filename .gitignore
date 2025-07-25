@@ -6,6 +6,7 @@ yarn-debug.log*
 yarn-error.log*
 dev-debug.log
 docker-compose.yml
+tutorial/
 code_test/
 
 # Dependency directories

@@ -13,9 +13,13 @@
         <el-icon><Box /></el-icon>
         <span>容器</span>
       </el-menu-item>
-      <el-menu-item v-if="authStore.user?.is_super_admin" index="/proxies">
+      <el-menu-item index="/proxies">
         <el-icon><DataLine /></el-icon>
         <span>代理</span>
+      </el-menu-item>
+      <el-menu-item @click="openTutorialInNewTab">
+        <el-icon><Reading /></el-icon>
+        <span>教程</span>
       </el-menu-item>
     </el-menu>
 
@@ -36,12 +40,13 @@
 
 <script setup>
 import { computed } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import { useAuthStore } from '@/stores/auth';
-import { Folder, Box, DataLine } from '@element-plus/icons-vue';
+import { Folder, Box, DataLine, Reading } from '@element-plus/icons-vue';
 
 const route = useRoute();
 const authStore = useAuthStore();
+const router = useRouter();
 
 /**
  * Computes the active route path for the menu.
@@ -56,6 +61,14 @@ const activeRoute = computed(() => route.path);
 const userInitial = computed(() =>
   authStore.user?.email ? authStore.user.email.charAt(0).toUpperCase() : 'U'
 );
+
+/**
+ * Opens the tutorial page in a new browser tab.
+ */
+const openTutorialInNewTab = () => {
+  const url = router.resolve({ path: '/tutorial' }).href;
+  window.open(url, '_blank');
+};
 
 /**
  * Handles dropdown menu commands.

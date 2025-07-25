@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 
 router = APIRouter(
     tags=["proxies"],
-    dependencies=[Depends(get_super_admin)]
+    # dependencies=[Depends(get_super_admin)]
 )
 
 @router.post("/refresh", summary="刷新并热加载Clash配置")

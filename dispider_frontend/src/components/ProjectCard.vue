@@ -27,8 +27,23 @@
       <div class="project-meta">
         <div><strong>角色:</strong> <el-tag size="small">{{ project.role || 'N/A' }}</el-tag></div>
         <div><strong>容器数:</strong> {{ project.container_count || 0 }}</div>
-        <div :class="{ 'has-alerts': project.alert_count > 0 }">
+        <div :class="{ 'has-alerts': (project.alert_count || 0) > 0 }">
           <strong>待处理警报:</strong> {{ project.alert_count || 0 }}
+        </div>
+        <div v-if="project.task_progress !== null && project.task_progress !== undefined" class="progress-item">
+          <strong>任务进度:</strong>
+          <el-progress
+            :percentage="formattedTaskProgress"
+            :stroke-width="15"
+            striped
+            striped-flow
+            :duration="20"
+            style="margin-top: 8px;"
+          />
+        </div>
+        <div v-else class="progress-item">
+          <strong>任务进度:</strong> 
+          <span class="no-data">暂无数据</span>
         </div>
       </div>
     </div>
@@ -61,6 +76,18 @@ const statusType = computed(() => {
     default:
       return 'primary';
   }
+});
+
+/**
+ * @description 格式化任务进度为百分比
+ * @returns {number} - 格式化后的进度百分比 (0-100)
+ */
+const formattedTaskProgress = computed(() => {
+  if (props.project.task_progress === null || props.project.task_progress === undefined) {
+    return 0;
+  }
+  // 后端返回的是 0.0 到 1.0 之间的小数，需要转换为 0 到 100 的百分比
+  return Math.round(props.project.task_progress * 100);
 });
 
 const handleCommand = (command) => {
@@ -104,6 +131,15 @@ const handleCommand = (command) => {
   margin-top: 10px;
   display: grid;
   gap: 5px;
+}
+
+.progress-item {
+  margin-top: 5px;
+}
+
+.no-data {
+  color: #999;
+  font-style: italic;
 }
 
 .has-alerts {

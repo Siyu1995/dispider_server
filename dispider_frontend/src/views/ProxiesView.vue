@@ -352,7 +352,7 @@
     </div>
 
     <!-- 配置管理面板 -->
-    <div class="config-section">
+    <div v-if="authStore.isSuperuser" class="config-section">
       <div class="section-header">
         <h2>⚙️ 配置管理</h2>
       </div>
@@ -394,8 +394,10 @@
 <script setup>
 import { ref, reactive, onMounted, onUnmounted } from 'vue';
 import { useClashStore } from '@/stores/clash';
+import { useAuthStore } from '@/stores/auth';
 
 const clashStore = useClashStore();
+const authStore = useAuthStore();
 
 // 原有的配置管理状态
 const selectedFile = ref(null);
@@ -1166,6 +1168,11 @@ h1 {
 }
 
 /* 容器映射表 */
+.container-mappings{
+  margin-top: 2rem;
+}
+
+
 .container-mappings h3 {
   color: #333;
 }

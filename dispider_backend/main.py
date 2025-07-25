@@ -85,7 +85,7 @@ app.include_router(auth_router.router, prefix="/api/auth")
 app.include_router(projects_router.router, prefix="/api/projects")
 
 # 包含来自 tasks 模块的路由
-app.include_router(tasks_router.router, prefix="/api/tasks")
+app.include_router(tasks_router.router, prefix="/api/{project_id}/tasks")
 
 # 包含与项目关联的容器路由
 # 请注意，这个路由器的前缀与 projects_router 相同，这是因为它的 API 路径

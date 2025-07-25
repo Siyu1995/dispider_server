@@ -110,6 +110,3 @@ def read_users(db: Session = Depends(get_db), current_user: schemas.User = Depen
     users = service.get_users(db=db)
     return Response(data=users)
 
-# @router.post("/register")
-# async def register_user():
-#     ... 

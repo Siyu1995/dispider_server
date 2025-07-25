@@ -107,7 +107,7 @@ onMounted(() => {
 });
 
 const goToProject = (projectId) => {
-  router.push({ name: 'ProjectDetail', params: { projectId } });
+  router.push({ name: 'ProjectDetail', params: { id: projectId } });
 };
 </script>
 

@@ -157,7 +157,7 @@ class ContainerService:
                 'WORKER_ID': worker_id,
                 'http_proxy': settings.PROXY_URL,
                 'https_proxy': settings.PROXY_URL,
-                'no_proxy': 'localhost,127.0.0.1,10.0.0.0/8'
+                'no_proxy': 'localhost,127.0.0.1,10.0.0.0/8,backend,db,redis,clash'
             }
             print(f"environment: {environment}")
 

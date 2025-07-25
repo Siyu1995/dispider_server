@@ -14,7 +14,7 @@ class UserBase(BaseModel):
 class UserCreate(BaseModel):
     username: str
     password: str
-    pushme_key: str | None = None
+    pushme_key: str
     is_super_admin: bool = False
     email: str
 

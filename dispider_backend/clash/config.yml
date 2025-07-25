@@ -1768,5 +1768,6 @@ proxy-groups:
   timeout: 3000
   lazy: false
 rules:
+- SRC-IP-CIDR,172.22.0.6/32,[Auto] 香港-07
 - GEOIP,CN,DIRECT
 - MATCH,DIRECT

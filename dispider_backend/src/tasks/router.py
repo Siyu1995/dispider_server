@@ -20,7 +20,6 @@ import logging
 logger = logging.getLogger(__name__)
 
 router = APIRouter(
-    prefix="/{project_id}/tasks", 
     tags=["tasks"]
 )
 
