@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "dompurify": "^3.2.6",
-    "marked": "^16.1.1"
-  }
-}
