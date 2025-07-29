@@ -24,9 +24,7 @@ def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(
         headers={"WWW-Authenticate": "Bearer"},
     )
     try:
-        print(token)
         payload = jwt.decode(token, settings.SECRET_KEY, algorithms=[settings.ALGORITHM])
-        print(payload)
         username: str = payload.get("sub")
         token_data = schemas.TokenData(username=username)
     except JWTError:
